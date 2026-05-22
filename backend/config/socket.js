@@ -1,7 +1,7 @@
 const { Server } = require('socket.io');
+const Message = require('../models/Message');
 
 let io;
-const chatHistory = [];
 
 exports.initSocket = (server) => {
   io = new Server(server, {
@@ -12,23 +12,39 @@ exports.initSocket = (server) => {
     }
   });
 
-  io.on('connection', (socket) => {
+  io.on('connection', async (socket) => {
     console.log('✅ User connected:', socket.id);
     
-    socket.emit('chat history', chatHistory.slice(-50));
+    // Send last 50 messages from database
+    try {
+      const recentMessages = await Message.getRecent('general', 50);
+      socket.emit('chat history', recentMessages);
+    } catch (error) {
+      console.error('Error loading chat history:', error);
+    }
     
-    socket.on('chat message', (data) => {
-      const message = {
-        id: Date.now(),
-        text: data.text,
-        timestamp: new Date().toISOString(),
-        anonymousId: socket.id.slice(-6)
-      };
-      
-      chatHistory.push(message);
-      if (chatHistory.length > 500) chatHistory.shift();
-      
-      io.emit('chat message', message);
+    socket.on('chat message', async (data) => {
+      try {
+        const message = new Message({
+          anonymousId: socket.id.slice(-6),
+          text: data.text,
+          room: 'general'
+        });
+        
+        await message.save();
+        
+        const messageToSend = {
+          id: message._id,
+          text: message.text,
+          timestamp: message.timestamp,
+          anonymousId: message.anonymousId
+        };
+        
+        io.emit('chat message', messageToSend);
+      } catch (error) {
+        console.error('Error saving message:', error);
+        socket.emit('error', 'Failed to send message');
+      }
     });
     
     socket.on('disconnect', () => {
@@ -40,8 +56,6 @@ exports.initSocket = (server) => {
 };
 
 exports.getIO = () => {
-  if (!io) {
-    throw new Error('Socket.io not initialized');
-  }
+  if (!io) throw new Error('Socket.io not initialized');
   return io;
 };
