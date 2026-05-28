@@ -1,38 +1,273 @@
-.App {
-  text-align: center;
+/* Therapist Directory */
+.therapists-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.therapist-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.therapist-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.therapist-card h3 {
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.specialty {
+  color: #4CAF50;
+  font-weight: 500;
+  margin: 0.5rem 0;
+}
+
+.rating {
+  color: #ffc107;
+  font-weight: bold;
+}
+
+.availability {
+  margin: 1rem 0;
+  font-weight: 500;
+}
+
+.availability.available {
+  color: #4CAF50;
+}
+
+.availability.unavailable {
+  color: #999;
+}
+
+.book-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.book-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* Resource Library */
+.filter-buttons {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+  flex-wrap: wrap;
+}
+
+.filter-buttons button {
+  padding: 0.5rem 1rem;
+  background: #ecf0f1;
+  color: #2c3e50;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-buttons button.active {
+  background: #4CAF50;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.resource-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.resource-icon {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.resource-card h3 {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+}
+
+.resource-type {
+  color: #7f8c8d;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  margin: 0.5rem 0;
+}
+
+.duration {
+  color: #4CAF50;
+  font-size: 0.9rem;
+}
+
+.resource-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #4CAF50;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Assessment */
+.assessment-info {
+  background: #e8f4f8;
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.question-card {
+  background: #f9f9f9;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 8px;
+}
+
+.question-text {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.rating-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.rating-btn {
+  width: 50px;
+  padding: 0.5rem;
+  background: #ecf0f1;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.rating-btn.selected {
+  background: #4CAF50;
+  color: white;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.1rem;
+  margin: 1rem 0;
+}
+
+.result-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 5px solid;
+  margin-top: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.score-display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.score {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.severity {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Crisis Hotlines */
+.hotlines-grid {
+  display: grid;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.hotline-card-enhanced {
+  background: #fff3e0;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 5px solid #e67e22;
+}
+
+.hotline-number-large a {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #e67e22;
+  text-decoration: none;
+}
+
+.call-btn {
+  background: #e67e22;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+}
+
+.safety-plan-section {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-top: 2rem;
+}
+
+.plan-item {
+  margin: 1.5rem 0;
+}
+
+.plan-item label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.plan-item textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-family: inherit;
+}
+
+.loading, .error, .no-data {
+  text-align: center;
+  padding: 2rem;
+  color: #7f8c8d;
+}
+
+.error {
+  color: #e74c3c;
+}
+
+.subtitle {
+  color: #7f8c8d;
+  margin-bottom: 1.5rem;
 }
