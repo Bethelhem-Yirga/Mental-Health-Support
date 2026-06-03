@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+  }
+
+  body {
+    @apply bg-gray-50 text-gray-900;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100 rounded;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary-400 rounded hover:bg-primary-500;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary-500 text-white px-6 py-2 rounded-lg hover:bg-primary-600 
+           transition-all duration-200 shadow-md hover:shadow-lg 
+           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply bg-gray-200 text-gray-800 px-6 py-2 rounded-lg hover:bg-gray-300 
+           transition-all duration-200;
+  }
+
+  .btn-crisis {
+    @apply bg-crisis-500 text-white px-6 py-3 rounded-lg hover:bg-crisis-600 
+           transition-all duration-200 animate-pulse-slow font-bold text-lg;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 p-6;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none 
+           focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all;
+  }
+
+  .chat-message {
+    @apply p-3 rounded-lg mb-2 max-w-[80%];
+  }
+
+  .chat-message-user {
+    @apply bg-primary-100 text-primary-900 ml-auto;
+  }
+
+  .chat-message-other {
+    @apply bg-gray-100 text-gray-900;
+  }
+}
+
+@layer utilities {
+  .gradient-bg {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+  
+  .glass-effect {
+    @apply backdrop-blur-md bg-white/30;
+  }
+}
