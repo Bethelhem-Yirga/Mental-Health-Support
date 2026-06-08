@@ -1,5 +1,6 @@
 const { Server } = require('socket.io');
 const Message = require('../models/Message');
+const mongoose = require('mongoose');
 
 let io;
 
@@ -15,35 +16,55 @@ exports.initSocket = (server) => {
   io.on('connection', async (socket) => {
     console.log('✅ User connected:', socket.id);
     
-    // Send last 50 messages from database
-    try {
-      const recentMessages = await Message.getRecent('general', 50);
-      socket.emit('chat history', recentMessages);
-    } catch (error) {
-      console.error('Error loading chat history:', error);
+    // Load messages from Atlas
+    if (mongoose.connection.readyState === 1) {
+      try {
+        const recentMessages = await Message.find()
+          .sort({ timestamp: -1 })
+          .limit(50)
+          .lean();
+        socket.emit('chat history', recentMessages.reverse());
+        console.log(`📨 Sent ${recentMessages.length} messages to user`);
+      } catch (error) {
+        console.error('Error loading chat history:', error.message);
+        socket.emit('chat history', []);
+      }
+    } else {
+      console.log('⚠️ Database not ready yet');
+      socket.emit('chat history', []);
     }
     
     socket.on('chat message', async (data) => {
       try {
-        const message = new Message({
-          anonymousId: socket.id.slice(-6),
-          text: data.text,
-          room: 'general'
-        });
+        let savedMessage = null;
         
-        await message.save();
+        if (mongoose.connection.readyState === 1) {
+          const message = new Message({
+            anonymousId: socket.id.slice(-6),
+            text: data.text,
+            room: 'general'
+          });
+          savedMessage = await message.save();
+          console.log(`💾 Message saved to Atlas: ${data.text.substring(0, 30)}`);
+        }
         
         const messageToSend = {
-          id: message._id,
-          text: message.text,
-          timestamp: message.timestamp,
-          anonymousId: message.anonymousId
+          id: savedMessage?._id || Date.now(),
+          text: data.text,
+          timestamp: new Date().toISOString(),
+          anonymousId: socket.id.slice(-6)
         };
         
         io.emit('chat message', messageToSend);
       } catch (error) {
-        console.error('Error saving message:', error);
-        socket.emit('error', 'Failed to send message');
+        console.error('Error saving message:', error.message);
+        // Still broadcast even if DB fails
+        io.emit('chat message', {
+          id: Date.now(),
+          text: data.text,
+          timestamp: new Date().toISOString(),
+          anonymousId: socket.id.slice(-6)
+        });
       }
     });
     
