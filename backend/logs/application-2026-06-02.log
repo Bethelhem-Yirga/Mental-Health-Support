@@ -1,0 +1,8 @@
+{"level":"info","message":"🚀 Initializing Mental Health API Server...","timestamp":"I10O8601"}
+{"level":"info","message":"✅ All API routes registered","routes":["/api/users","/api/moods","/api/assessment","/api/therapists","/api/resources","/api/crisis","/api/auth"],"timestamp":"I4O8601"}
+{"level":"info","message":"🚀 Server configuration complete!","timestamp":"I4O8601"}
+{"level":"info","message":"📋 Middleware loaded successfully","timestamp":"I4O8601"}
+{"level":"info","message":"🚀 Initializing Mental Health API Server...","timestamp":"I1O8601"}
+{"level":"info","message":"✅ All API routes registered","routes":["/api/users","/api/moods","/api/assessment","/api/therapists","/api/resources","/api/crisis","/api/auth"],"timestamp":"I7O8601"}
+{"level":"info","message":"🚀 Server configuration complete!","timestamp":"I7O8601"}
+{"level":"info","message":"📋 Middleware loaded successfully","timestamp":"I7O8601"}

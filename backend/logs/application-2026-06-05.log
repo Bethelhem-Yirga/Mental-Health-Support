@@ -1,0 +1,153 @@
+{"level":"info","message":"🚀 Initializing Mental Health API Server...","timestamp":"I5O8601"}
+{"level":"info","message":"✅ All API routes registered","timestamp":"I3O8601"}
+{"level":"info","message":"🚀 Server configuration complete!","timestamp":"I3O8601"}
+{"level":"info","message":"📋 Middleware loaded successfully","timestamp":"I3O8601"}
+{"level":"info","message":"🚀 Initializing Mental Health API Server...","timestamp":"I6O8601"}
+{"level":"info","message":"✅ All API routes registered","timestamp":"I4O8601"}
+{"level":"info","message":"🚀 Server configuration complete!","timestamp":"I4O8601"}
+{"level":"info","message":"📋 Middleware loaded successfully","timestamp":"I4O8601"}
+{"level":"info","message":"🚀 Initializing Mental Health API Server...","timestamp":"I9O8601"}
+{"level":"info","message":"✅ All API routes registered","timestamp":"I9O8601"}
+{"level":"info","message":"🚀 Server configuration complete!","timestamp":"I9O8601"}
+{"level":"info","message":"📋 Middleware loaded successfully","timestamp":"I9O8601"}
+{"level":"info","message":"🚀 Initializing Mental Health API Server...","timestamp":"I1O8601"}
+{"level":"info","message":"✅ All API routes registered","timestamp":"I7O8601"}
+{"level":"info","message":"🚀 Server configuration complete!","timestamp":"I7O8601"}
+{"level":"info","message":"📋 Middleware loaded successfully","timestamp":"I7O8601"}
+{"level":"info","message":"🚀 Initializing Mental Health API Server...","timestamp":"I4O8601"}
+{"level":"info","message":"✅ All API routes registered","timestamp":"I1O8601"}
+{"level":"info","message":"🚀 Server configuration complete!","timestamp":"I1O8601"}
+{"level":"info","message":"📋 Middleware loaded successfully","timestamp":"I1O8601"}
+{"level":"info","message":"🚀 Initializing Mental Health API Server...","timestamp":"I6O8601"}
+{"level":"info","message":"✅ All API routes registered","timestamp":"I3O8601"}
+{"level":"info","message":"🚀 Server configuration complete!","timestamp":"I3O8601"}
+{"level":"info","message":"📋 Middleware loaded successfully","timestamp":"I3O8601"}
+{"level":"info","message":"🚀 Initializing Mental Health API Server...","timestamp":"I9O8601"}
+{"level":"info","message":"✅ All API routes registered","timestamp":"I4O8601"}
+{"level":"info","message":"🚀 Server configuration complete!","timestamp":"I4O8601"}
+{"level":"info","message":"📋 Middleware loaded successfully","timestamp":"I4O8601"}
+{"level":"info","message":"🚀 Initializing Mental Health API Server...","timestamp":"I5O8601"}
+{"level":"info","message":"✅ All API routes registered","timestamp":"I5O8601"}
+{"level":"info","message":"🚀 Server configuration complete!","timestamp":"I5O8601"}
+{"level":"info","message":"📋 Middleware loaded successfully","timestamp":"I5O8601"}
+{"level":"info","message":"🚀 Initializing Mental Health API Server...","timestamp":"I4O8601"}
+{"level":"info","message":"✅ All API routes registered","timestamp":"I1O8601"}
+{"level":"info","message":"🚀 Server configuration complete!","timestamp":"I1O8601"}
+{"level":"info","message":"📋 Middleware loaded successfully","timestamp":"I1O8601"}
+{"level":"info","message":"🚀 Initializing Mental Health API Server...","timestamp":"I8O8601"}
+{"level":"info","message":"✅ All API routes registered","timestamp":"I4O8601"}
+{"level":"info","message":"🚀 Server configuration complete!","timestamp":"I4O8601"}
+{"level":"info","message":"📋 Middleware loaded successfully","timestamp":"I4O8601"}
+{"level":"info","message":"🚀 Initializing Mental Health API Server...","timestamp":"I4O8601"}
+{"level":"info","message":"✅ All API routes registered","timestamp":"I1O8601"}
+{"level":"info","message":"🚀 Server configuration complete!","timestamp":"I1O8601"}
+{"level":"info","message":"📋 Middleware loaded successfully","timestamp":"I1O8601"}
+{"level":"info","message":"🚀 Initializing Mental Health API Server...","timestamp":"I3O8601"}
+{"level":"info","message":"✅ All API routes registered","timestamp":"I10O8601"}
+{"level":"info","message":"🚀 Server configuration complete!","timestamp":"I10O8601"}
+{"level":"info","message":"📋 Middleware loaded successfully","timestamp":"I10O8601"}
+{"level":"info","message":"🚀 Initializing Mental Health API Server...","timestamp":"I6O8601"}
+{"level":"info","message":"✅ All API routes registered","timestamp":"I6O8601"}
+{"level":"info","message":"🚀 Server configuration complete!","timestamp":"I6O8601"}
+{"level":"info","message":"📋 Middleware loaded successfully","timestamp":"I6O8601"}
+{"level":"info","message":"🚀 Initializing Mental Health API Server...","timestamp":"I7O8601"}
+{"level":"info","message":"✅ All API routes registered","timestamp":"I2O8601"}
+{"level":"info","message":"🚀 Server configuration complete!","timestamp":"I2O8601"}
+{"level":"info","message":"📋 Middleware loaded successfully","timestamp":"I2O8601"}
+{"level":"info","message":"🚀 Initializing Mental Health API Server...","timestamp":"I8O8601"}
+{"level":"info","message":"✅ All API routes registered","timestamp":"I6O8601"}
+{"level":"info","message":"🚀 Server configuration complete!","timestamp":"I6O8601"}
+{"level":"info","message":"📋 Middleware loaded successfully","timestamp":"I6O8601"}
+{"level":"info","message":"🚀 Initializing Mental Health API Server...","timestamp":"I9O8601"}
+{"level":"info","message":"✅ All API routes registered","timestamp":"I6O8601"}
+{"level":"info","message":"🚀 Server configuration complete!","timestamp":"I6O8601"}
+{"level":"info","message":"📋 Middleware loaded successfully","timestamp":"I6O8601"}
+{"level":"info","message":"🚀 Initializing Mental Health API Server...","timestamp":"I7O8601"}
+{"level":"info","message":"✅ All API routes registered","timestamp":"I8O8601"}
+{"level":"info","message":"🚀 Server configuration complete!","timestamp":"I8O8601"}
+{"level":"info","message":"📋 Middleware loaded successfully","timestamp":"I8O8601"}
+{"level":"info","message":"🚀 Initializing Mental Health API Server...","timestamp":"I6O8601"}
+{"level":"info","message":"✅ All API routes registered","timestamp":"I1O8601"}
+{"level":"info","message":"🚀 Server configuration complete!","timestamp":"I1O8601"}
+{"level":"info","message":"📋 Middleware loaded successfully","timestamp":"I1O8601"}
+{"level":"info","message":"🚀 Initializing Mental Health API Server...","timestamp":"I7O8601"}
+{"level":"info","message":"✅ All API routes registered","timestamp":"I9O8601"}
+{"level":"info","message":"🚀 Server configuration complete!","timestamp":"I9O8601"}
+{"level":"info","message":"📋 Middleware loaded successfully","timestamp":"I9O8601"}
+{"ip":"::1","level":"warn","message":"Slow request detected","method":"GET","responseTime":"1473ms","timestamp":"I6O8601","url":"/specialties"}
+{"level":"info","message":"🚀 Initializing Mental Health API Server...","timestamp":"I7O8601"}
+{"level":"info","message":"✅ All API routes registered","timestamp":"I4O8601"}
+{"level":"info","message":"🚀 Server configuration complete!","timestamp":"I4O8601"}
+{"level":"info","message":"📋 Middleware loaded successfully","timestamp":"I4O8601"}
+{"level":"info","message":"🚀 Initializing Mental Health API Server...","timestamp":"I6O8601"}
+{"level":"info","message":"✅ All API routes registered","timestamp":"I4O8601"}
+{"level":"info","message":"🚀 Server configuration complete!","timestamp":"I4O8601"}
+{"level":"info","message":"📋 Middleware loaded successfully","timestamp":"I4O8601"}
+{"level":"info","message":"🚀 Initializing Mental Health API Server...","timestamp":"I2O8601"}
+{"level":"info","message":"✅ All API routes registered","timestamp":"I9O8601"}
+{"level":"info","message":"🚀 Server configuration complete!","timestamp":"I9O8601"}
+{"level":"info","message":"📋 Middleware loaded successfully","timestamp":"I9O8601"}
+{"level":"info","message":"🚀 Initializing Mental Health API Server...","timestamp":"I2O8601"}
+{"level":"info","message":"✅ All API routes registered","timestamp":"I0O8601"}
+{"level":"info","message":"🚀 Server configuration complete!","timestamp":"I0O8601"}
+{"level":"info","message":"📋 Middleware loaded successfully","timestamp":"I0O8601"}
+{"level":"info","message":"🚀 Initializing Mental Health API Server...","timestamp":"I2O8601"}
+{"level":"info","message":"✅ All API routes registered","timestamp":"I8O8601"}
+{"level":"info","message":"🚀 Server configuration complete!","timestamp":"I8O8601"}
+{"level":"info","message":"📋 Middleware loaded successfully","timestamp":"I8O8601"}
+{"level":"info","message":"🚀 Initializing Mental Health API Server...","timestamp":"I1O8601"}
+{"level":"info","message":"✅ All API routes registered","timestamp":"I7O8601"}
+{"level":"info","message":"🚀 Server configuration complete!","timestamp":"I7O8601"}
+{"level":"info","message":"📋 Middleware loaded successfully","timestamp":"I7O8601"}
+{"level":"info","message":"🚀 Initializing Mental Health API Server...","timestamp":"I3O8601"}
+{"level":"info","message":"✅ All API routes registered","timestamp":"I3O8601"}
+{"level":"info","message":"🚀 Server configuration complete!","timestamp":"I3O8601"}
+{"level":"info","message":"📋 Middleware loaded successfully","timestamp":"I3O8601"}
+{"level":"info","message":"🚀 Initializing Mental Health API Server...","timestamp":"I1O8601"}
+{"level":"info","message":"✅ All API routes registered","timestamp":"I10O8601"}
+{"level":"info","message":"🚀 Server configuration complete!","timestamp":"I10O8601"}
+{"level":"info","message":"📋 Middleware loaded successfully","timestamp":"I10O8601"}
+{"level":"info","message":"🚀 Initializing Mental Health API Server...","timestamp":"I2O8601"}
+{"level":"info","message":"✅ All API routes registered","timestamp":"I8O8601"}
+{"level":"info","message":"🚀 Server configuration complete!","timestamp":"I8O8601"}
+{"level":"info","message":"📋 Middleware loaded successfully","timestamp":"I8O8601"}
+{"level":"info","message":"🚀 Initializing Mental Health API Server...","timestamp":"I0O8601"}
+{"level":"info","message":"✅ All API routes registered","timestamp":"I4O8601"}
+{"level":"info","message":"🚀 Server configuration complete!","timestamp":"I4O8601"}
+{"level":"info","message":"📋 Middleware loaded successfully","timestamp":"I4O8601"}
+{"level":"info","message":"🚀 Initializing Mental Health API Server...","timestamp":"I3O8601"}
+{"level":"info","message":"✅ All API routes registered","timestamp":"I4O8601"}
+{"level":"info","message":"🚀 Server configuration complete!","timestamp":"I4O8601"}
+{"level":"info","message":"📋 Middleware loaded successfully","timestamp":"I4O8601"}
+{"level":"info","message":"🚀 Initializing Mental Health API Server...","timestamp":"I7O8601"}
+{"level":"info","message":"✅ All API routes registered","timestamp":"I8O8601"}
+{"level":"info","message":"🚀 Server configuration complete!","timestamp":"I8O8601"}
+{"level":"info","message":"📋 Middleware loaded successfully","timestamp":"I8O8601"}
+{"ip":"::1","level":"warn","message":"Slow request detected","method":"GET","responseTime":"1480ms","timestamp":"I9O8601","url":"/?"}
+{"level":"info","message":"🚀 Initializing Mental Health API Server...","timestamp":"I8O8601"}
+{"level":"info","message":"✅ All API routes registered","timestamp":"I4O8601"}
+{"level":"info","message":"🚀 Server configuration complete!","timestamp":"I4O8601"}
+{"level":"info","message":"📋 Middleware loaded successfully","timestamp":"I4O8601"}
+{"level":"info","message":{"action":"CREATE_MOOD","details":{"moodLabel":"😐 Okay","moodValue":3},"timestamp":"2026-06-05T08:20:31.018Z","type":"USER_ACTION","userId":"6a2286ceadddd129c87948a3"},"timestamp":"I0O8601"}
+{"level":"info","message":{"duration":"270ms","metadata":{"userId":"6a2286ceadddd129c87948a3"},"operation":"createMoodEntry","type":"PERFORMANCE"},"timestamp":"I0O8601"}
+{"level":"info","message":"🚀 Initializing Mental Health API Server...","timestamp":"I3O8601"}
+{"level":"info","message":"✅ All API routes registered","timestamp":"I3O8601"}
+{"level":"info","message":"🚀 Server configuration complete!","timestamp":"I3O8601"}
+{"level":"info","message":"📋 Middleware loaded successfully","timestamp":"I3O8601"}
+{"level":"info","message":"🚀 Initializing Mental Health API Server...","timestamp":"I6O8601"}
+{"level":"info","message":"✅ All API routes registered","timestamp":"I4O8601"}
+{"level":"info","message":"🚀 Server configuration complete!","timestamp":"I4O8601"}
+{"level":"info","message":"📋 Middleware loaded successfully","timestamp":"I4O8601"}
+{"level":"info","message":"🚀 Initializing Mental Health API Server...","timestamp":"I2O8601"}
+{"level":"info","message":"✅ All API routes registered","timestamp":"I8O8601"}
+{"level":"info","message":"🚀 Server configuration complete!","timestamp":"I8O8601"}
+{"level":"info","message":"📋 Middleware loaded successfully","timestamp":"I8O8601"}
+{"level":"info","message":"🚀 Initializing Mental Health API Server...","timestamp":"I6O8601"}
+{"level":"info","message":"✅ All API routes registered","timestamp":"I9O8601"}
+{"level":"info","message":"🚀 Server configuration complete!","timestamp":"I9O8601"}
+{"level":"info","message":"📋 Middleware loaded successfully","timestamp":"I9O8601"}
+{"level":"info","message":"🚀 Initializing Mental Health API Server...","timestamp":"I0O8601"}
+{"level":"info","message":"✅ All API routes registered","timestamp":"I3O8601"}
+{"level":"info","message":"🚀 Server configuration complete!","timestamp":"I3O8601"}
+{"level":"info","message":"📋 Middleware loaded successfully","timestamp":"I3O8601"}
+{"ip":"::1","level":"warn","message":"Slow request detected","method":"GET","responseTime":"1360ms","timestamp":"I7O8601","url":"/?"}

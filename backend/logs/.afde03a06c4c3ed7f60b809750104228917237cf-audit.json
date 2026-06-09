@@ -1,0 +1,35 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/home/mercy/Desktop/mental/backend/logs/.afde03a06c4c3ed7f60b809750104228917237cf-audit.json",
+    "files": [
+        {
+            "date": 1780390075984,
+            "name": "/home/mercy/Desktop/mental/backend/logs/application-2026-06-02.log",
+            "hash": "689fd747fa8ab444b9e4ab163737d1adb1ca4d4f3d92a53973fc96285729edff"
+        },
+        {
+            "date": 1780471978003,
+            "name": "/home/mercy/Desktop/mental/backend/logs/application-2026-06-03.log",
+            "hash": "1dfff7c92e225cad14f2136c0c5fbfff6992a435f8dfbe2ec8f283f02edf9f26"
+        },
+        {
+            "date": 1780637160424,
+            "name": "/home/mercy/Desktop/mental/backend/logs/application-2026-06-05.log",
+            "hash": "69658bb3ee2217422c77b5458eb6ff1557c96ff7b51f2bc674451d17965e306c"
+        },
+        {
+            "date": 1780896371870,
+            "name": "/home/mercy/Desktop/mental/backend/logs/application-2026-06-08.log",
+            "hash": "ce8cfd563d4972955a62fb36330b321ea0043a19e19120d224ecbc3aaf91a4f7"
+        },
+        {
+            "date": 1780986255543,
+            "name": "/home/mercy/Desktop/mental/backend/logs/application-2026-06-09.log",
+            "hash": "c5273370424f4112a552a6de4e1379f74f29dd768e057788deae7218f9639212"
+        }
+    ],
+    "hashType": "sha256"
+}
