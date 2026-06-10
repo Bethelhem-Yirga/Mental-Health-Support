@@ -9,6 +9,9 @@
 [![Socket.io](https://img.shields.io/badge/Socket.io-4.x-black)](https://socket.io/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
+![Chat Screenshot](/screenshots/chat.gif)
+*Figure 1: chat 
+
 ## 📋 Table of Contents
 
 - [About The Project](#about-the-project)
