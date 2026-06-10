@@ -12,6 +12,13 @@
 ![Chat Screenshot](/screenshots/chat.gif)
 *Figure 1: chat 
 
+![Mood](/screenshots/mood.png)
+*Figure 2: mood
+
+![Assessment](./screenshots/assesment.png)
+*Figure 3: assessment
+
+
 ## 📋 Table of Contents
 
 - [About The Project](#about-the-project)
