@@ -212,24 +212,6 @@ http://localhost:3000
 Development: http://localhost:5000/api
 Production: https://yourdomain.com/api
 ```
-
-#### Endpoints
-
-```bash
-Method	Endpoint	Description	Auth
-GET	/health	Health check	Public
-GET	/metrics	Performance metrics	Public
-POST	/users/create	Create anonymous user	Public
-GET	/users/:userId	Get user profile	Public
-POST	/moods/entry	Create mood entry	Public
-GET	/moods/entries	Get mood entries	Public
-POST	/assessment/submit	Submit PHQ-9	Public
-GET	/assessment/history/:userId	Get assessments	Public
-GET	/therapists	List therapists	Public
-GET	/resources	List resources	Public
-GET	/crisis/hotlines	Crisis hotlines	Public
-```
-
 #### Example Request
 
 ```bash
@@ -254,3 +236,87 @@ curl -X POST http://localhost:5000/api/assessment/submit \
     "answers": [1,2,1,0,1,2,1,0,1]
   }'
 ```
+
+📁 Project Structure
+```bash
+mindspace/
+├── backend/
+│   ├── config/           # Configuration files
+│   ├── controllers/      # Business logic
+│   ├── middleware/       # Custom middleware
+│   ├── models/          # MongoDB schemas
+│   ├── routes/          # API routes
+│   ├── scripts/         # Utility scripts
+│   ├── services/        # External services
+│   ├── utils/           # Helper functions
+│   ├── app.js           # Express app
+│   ├── server.js        # Entry point
+│   └── .env             # Environment variables
+│
+├── frontend-next/
+│   ├── app/             # Next.js app router
+│   │   ├── page.tsx     # Homepage
+│   │   ├── chat/        # Chat page
+│   │   ├── journal/     # Mood journal
+│   │   ├── assessment/  # PHQ-9 test
+│   │   ├── therapists/  # Directory
+│   │   ├── mindfulness/ # Tools
+│   │   ├── resources/   # Library
+│   │   └── crisis/      # Emergency
+│   ├── components/      # React components
+│   ├── contexts/        # React contexts
+│   ├── hooks/           # Custom hooks
+│   ├── utils/           # Utilities
+│   ├── public/          # Static assets
+│   ├── cypress/         # E2E tests
+│   └── .env.local       # Environment variables
+│
+└── README.md
+```
+
+### 🤝 Contributing
+Contributions are welcome! Please follow these steps:
+
+Fork the repository
+
+Create your feature branch (git checkout -b feature/AmazingFeature)
+
+Commit your changes (git commit -m 'Add some AmazingFeature')
+
+Push to the branch (git push origin feature/AmazingFeature)
+
+Open a Pull Request
+
+### Development Guidelines
+Follow existing code style
+
+Write tests for new features
+
+Update documentation
+
+Test before submitting PR
+
+### 📄 License
+Distributed under the MIT License. See LICENSE for more information.
+
+### 📧 Contact
+Your Name - @yourtwitter - your.email@example.com
+
+Project Link: https://github.com/yourusername/mindspace
+
+Live Demo: https://mindspace.vercel.app
+
+### 🙏 Acknowledgments
+Next.js Documentation
+
+Socket.io Documentation
+
+MongoDB University
+
+Tailwind CSS
+
+PHQ-9 Depression Scale
+
+### ⭐ Show Your Support
+If this project helped you, please give it a ⭐ on GitHub!
+
