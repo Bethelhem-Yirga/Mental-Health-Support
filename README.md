@@ -150,9 +150,60 @@ cd ../frontend-next
 npm install
 ```
 
+#### 4. Set up Environment Variables
+#### Backend (.env):
 
+```bash
+PORT=5000
+NODE_ENV=development
+FRONTEND_URL=http://localhost:3000
 
+# MongoDB
+MONGODB_URI=your_mongodb_connection_string
 
+# JWT (optional)
+JWT_SECRET=your_jwt_secret
+JWT_REFRESH_SECRET=your_refresh_secret
+
+# Rate Limiting
+RATE_LIMIT_WINDOW_MS=900000
+RATE_LIMIT_MAX_REQUESTS=100
+
+# Logging
+LOG_LEVEL=debug
+```
+
+#### Frontend (.env.local):
+
+```bash
+NEXT_PUBLIC_API_URL=http://localhost:5000/api
+NEXT_PUBLIC_SOCKET_URL=http://localhost:5000
+```
+
+#### 5. Seed the Database
+
+```bash
+cd backend
+npm run seed
+```
+
+#### 6. Run the Application
+
+```bash
+# Terminal 1: Backend
+cd backend
+npm run dev
+
+# Terminal 2: Frontend
+cd frontend-next
+npm run dev
+```
+
+#### 7. Open your browser
+
+```bash
+http://localhost:3000
+```
 
 
 
