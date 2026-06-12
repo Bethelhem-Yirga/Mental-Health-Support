@@ -205,8 +205,52 @@ npm run dev
 http://localhost:3000
 ```
 
+### 📡 API Documentation
+#### Base URL
 
+```bash
+Development: http://localhost:5000/api
+Production: https://yourdomain.com/api
+```
 
+#### Endpoints
 
+```bash
+Method	Endpoint	Description	Auth
+GET	/health	Health check	Public
+GET	/metrics	Performance metrics	Public
+POST	/users/create	Create anonymous user	Public
+GET	/users/:userId	Get user profile	Public
+POST	/moods/entry	Create mood entry	Public
+GET	/moods/entries	Get mood entries	Public
+POST	/assessment/submit	Submit PHQ-9	Public
+GET	/assessment/history/:userId	Get assessments	Public
+GET	/therapists	List therapists	Public
+GET	/resources	List resources	Public
+GET	/crisis/hotlines	Crisis hotlines	Public
+```
 
+#### Example Request
 
+```bash
+# Create a user
+curl -X POST http://localhost:5000/api/users/create
+
+# Add mood entry
+curl -X POST http://localhost:5000/api/moods/entry \
+  -H "Content-Type: application/json" \
+  -d '{
+    "userId": "USER_ID",
+    "moodValue": 2,
+    "moodLabel": "😐 Okay",
+    "note": "Feeling balanced"
+  }'
+
+# Submit assessment
+curl -X POST http://localhost:5000/api/assessment/submit \
+  -H "Content-Type: application/json" \
+  -d '{
+    "userId": "USER_ID",
+    "answers": [1,2,1,0,1,2,1,0,1]
+  }'
+```
