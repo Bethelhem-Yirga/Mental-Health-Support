@@ -85,3 +85,77 @@ Mental health struggles affect millions of people, but many hesitate to seek hel
 ## 🛠️ Tech Stack
 
 ### Frontend
+
+```bash
+├── Next.js 14 (App Router)
+├── TypeScript
+├── Tailwind CSS
+├── Socket.io Client
+├── Chart.js
+├── Lucide React Icons
+└── React Hook Form
+```
+
+```bash
+### Backend
+├── Node.js + Express
+├── MongoDB + Mongoose
+├── Socket.io
+├── JWT (optional auth)
+├── Helmet (security)
+├── CORS
+├── Rate Limiting
+├── Compression
+├── Winston (logging)
+└── Morgan (HTTP logging)
+```
+
+```bash
+### DevOps & Tools
+├── Git & GitHub
+├── MongoDB Atlas
+├── Vercel (frontend)
+├── Render (backend)
+├── Cypress (testing)
+└── Postman (API testing)
+```
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js (v18 or higher)
+- npm or yarn
+- MongoDB Atlas account (or local MongoDB)
+
+### Installation
+
+#### 1. Clone the repository
+
+```bash
+git clone https://github.com/Bethelhem-Yirga/Mental-Health-Support.git
+cd Mental
+```
+
+#### 2. Install Backend Dependencies
+
+```bash
+cd backend
+npm install
+```
+
+#### 3. Install Frontend Dependencies
+
+```bash
+cd ../frontend-next
+npm install
+```
+
+
+
+
+
+
+
+
+
+
