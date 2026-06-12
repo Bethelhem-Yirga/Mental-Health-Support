@@ -237,7 +237,7 @@ curl -X POST http://localhost:5000/api/assessment/submit \
   }'
 ```
 
-📁 Project Structure
+### 📁 Project Structure
 ```bash
 mindspace/
 ├── backend/
@@ -300,11 +300,9 @@ Test before submitting PR
 Distributed under the MIT License. See LICENSE for more information.
 
 ### 📧 Contact
-Your Name - @yourtwitter - your.email@example.com
+Your Name - bethelyg909@gmail.com
 
-Project Link: https://github.com/yourusername/mindspace
-
-Live Demo: https://mindspace.vercel.app
+Project Link: https://github.com/Bethelhem-Yirga/Mental-Health-Support
 
 ### 🙏 Acknowledgments
 Next.js Documentation
