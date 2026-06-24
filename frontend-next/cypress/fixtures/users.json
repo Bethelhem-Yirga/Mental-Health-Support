@@ -1,0 +1,6 @@
+{
+  "testUser": {
+    "email": "cypress@test.com",
+    "password": "Test123456"
+  }
+}
