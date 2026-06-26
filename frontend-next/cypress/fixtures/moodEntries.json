@@ -1,0 +1,5 @@
+[
+  { "moodValue": 0, "moodLabel": "😊 Great", "note": "Amazing day!" },
+  { "moodValue": 1, "moodLabel": "🙂 Good", "note": "Pretty good day" },
+  { "moodValue": 2, "moodLabel": "😐 Okay", "note": "Just okay" }
+]
