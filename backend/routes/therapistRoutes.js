@@ -1,10 +1,22 @@
 const express = require('express');
 const router = express.Router();
-const { getAllTherapists, getTherapistById } = require('../controllers/therapistController');
-const { cacheMiddleware } = require('../config/redis');
+const {
+  getAllTherapists,
+  getTherapistById,
+  createTherapist,
+  updateTherapist,
+  deleteTherapist,
+  getSpecialties
+} = require('../controllers/therapistController');
 
-// Cache therapist list for 1 hour
-router.get('/', cacheMiddleware(3600), getAllTherapists);
-router.get('/:id', cacheMiddleware(3600), getTherapistById);
+// Public routes
+router.get('/', getAllTherapists);
+router.get('/specialties', getSpecialties);
+router.get('/:id', getTherapistById);
+
+// Admin routes (add auth middleware in production)
+router.post('/', createTherapist);
+router.put('/:id', updateTherapist);
+router.delete('/:id', deleteTherapist);
 
 module.exports = router;

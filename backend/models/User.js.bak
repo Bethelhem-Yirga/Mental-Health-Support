@@ -1,0 +1,90 @@
+const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
+
+const userSchema = new mongoose.Schema({
+  email: {
+    type: String,
+    unique: true,
+    sparse: true,
+    lowercase: true,
+    trim: true
+  },
+  password: {
+    type: String,
+    select: false
+  },
+  name: {
+    type: String,
+    trim: true
+  },
+  anonymousId: {
+    type: String,
+    unique: true,
+    sparse: true
+  },
+  anonymousOnly: {
+    type: Boolean,
+    default: false
+  },
+  role: {
+    type: String,
+    enum: ['user', 'therapist', 'admin'],
+    default: 'user'
+  },
+  isActive: {
+    type: Boolean,
+    default: true
+  },
+  lastLogin: Date,
+  preferences: {
+    dailyReminder: { type: Boolean, default: false },
+    reminderTime: { type: String, default: '20:00' },
+    darkMode: { type: Boolean, default: false }
+  },
+  stats: {
+    totalMoods: { type: Number, default: 0 },
+    totalAssessments: { type: Number, default: 0 },
+    currentStreak: { type: Number, default: 0 },
+    longestStreak: { type: Number, default: 0 }
+  }
+}, {
+  timestamps: true
+});
+
+// Hash password before saving
+userSchema.pre('save', function(next) {
+  const user = this;
+  
+  if (!user.isModified('password')) {
+    return next();
+  }
+  
+  bcrypt.genSalt(12, (err, salt) => {
+    if (err) return next(err);
+    
+    bcrypt.hash(user.password, salt, (err, hash) => {
+      if (err) return next(err);
+      user.password = hash;
+      next();
+    });
+  });
+});
+
+// Set anonymous ID before saving
+userSchema.pre('save', function(next) {
+  const user = this;
+  
+  if (!user.anonymousId && !user.email) {
+    user.anonymousId = 'anon_' + Math.random().toString(36).substring(2, 15);
+    user.anonymousOnly = true;
+  }
+  next();
+});
+
+// Compare password method
+userSchema.methods.comparePassword = async function(candidatePassword) {
+  if (!this.password) return false;
+  return bcrypt.compare(candidatePassword, this.password);
+};
+
+module.exports = mongoose.model('User', userSchema);

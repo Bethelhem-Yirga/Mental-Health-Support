@@ -1,0 +1,159 @@
+const express = require('express');
+const router = express.Router();
+const jwt = require('jsonwebtoken');
+const User = require('../models/User');
+
+const JWT_SECRET = process.env.JWT_SECRET || 'my-super-secret-key-2024';
+
+const generateToken = (userId) => {
+  return jwt.sign({ id: userId }, JWT_SECRET, { expiresIn: '7d' });
+};
+
+// Register
+router.post('/register', async (req, res) => {
+  try {
+    const { email, password, name } = req.body;
+    
+    if (!email || !password) {
+      return res.status(400).json({ 
+        success: false, 
+        error: 'Email and password required' 
+      });
+    }
+    
+    if (password.length < 6) {
+      return res.status(400).json({ 
+        success: false, 
+        error: 'Password must be at least 6 characters' 
+      });
+    }
+    
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      return res.status(400).json({ 
+        success: false, 
+        error: 'User already exists' 
+      });
+    }
+    
+    const user = new User({
+      email,
+      password,
+      name: name || email.split('@')[0]
+    });
+    
+    await user.save();
+    
+    const token = generateToken(user._id);
+    
+    res.status(201).json({
+      success: true,
+      data: {
+        user: {
+          id: user._id,
+          email: user.email,
+          name: user.name,
+          role: user.role
+        },
+        token
+      }
+    });
+  } catch (error) {
+    console.error('Register error:', error);
+    res.status(500).json({ 
+      success: false, 
+      error: error.message 
+    });
+  }
+});
+
+// Login
+router.post('/login', async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    
+    if (!email || !password) {
+      return res.status(400).json({ 
+        success: false, 
+        error: 'Email and password required' 
+      });
+    }
+    
+    const user = await User.findOne({ email }).select('+password');
+    
+    if (!user) {
+      return res.status(401).json({ 
+        success: false, 
+        error: 'Invalid credentials' 
+      });
+    }
+    
+    const isMatch = await user.comparePassword(password);
+    
+    if (!isMatch) {
+      return res.status(401).json({ 
+        success: false, 
+        error: 'Invalid credentials' 
+      });
+    }
+    
+    user.lastLogin = new Date();
+    await user.save();
+    
+    const token = generateToken(user._id);
+    
+    res.json({
+      success: true,
+      data: {
+        user: {
+          id: user._id,
+          email: user.email,
+          name: user.name,
+          role: user.role
+        },
+        token
+      }
+    });
+  } catch (error) {
+    console.error('Login error:', error);
+    res.status(500).json({ 
+      success: false, 
+      error: error.message 
+    });
+  }
+});
+
+// Anonymous
+router.post('/anonymous', async (req, res) => {
+  try {
+    const user = new User({
+      anonymousOnly: true,
+      anonymousId: 'anon_' + Math.random().toString(36).substring(2, 15),
+      name: 'Anonymous User'
+    });
+    
+    await user.save();
+    
+    const token = generateToken(user._id);
+    
+    res.status(201).json({
+      success: true,
+      data: {
+        user: {
+          id: user._id,
+          anonymousId: user.anonymousId,
+          name: user.name
+        },
+        token
+      }
+    });
+  } catch (error) {
+    console.error('Anonymous error:', error);
+    res.status(500).json({ 
+      success: false, 
+      error: error.message 
+    });
+  }
+});
+
+module.exports = router;

@@ -271,3 +271,739 @@
   color: #7f8c8d;
   margin-bottom: 1.5rem;
 }
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.user-info {
+  margin-left: auto;
+  padding: 0 15px;
+}
+
+.user-badge {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+/* Mood Calendar Heatmap Styles */
+.mood-calendar-container {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.heatmap-description {
+  color: #666;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+/* Stats Cards */
+.heatmap-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.stat-label {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+/* Heatmap Grid */
+.heatmap-months {
+  position: relative;
+  height: 25px;
+  margin-bottom: 10px;
+}
+
+.month-label {
+  position: absolute;
+  font-size: 11px;
+  color: #666;
+}
+
+.heatmap-grid {
+  display: flex;
+  gap: 3px;
+  overflow-x: auto;
+  padding: 10px 0;
+}
+
+.heatmap-week {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.heatmap-day {
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heatmap-day:hover {
+  transform: scale(1.1);
+  z-index: 1;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.heatmap-emoji {
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.heatmap-day:hover .heatmap-emoji {
+  opacity: 1;
+}
+
+/* Legend */
+.heatmap-legend {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.legend-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: #666;
+}
+
+.legend-colors {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+}
+
+.legend-color {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+}
+
+/* Mood Distribution */
+.mood-distribution {
+  margin-top: 25px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+
+.mood-distribution h4 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.distribution-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.distribution-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.distribution-label {
+  width: 100px;
+  font-size: 13px;
+}
+
+.distribution-bar-container {
+  flex: 1;
+  height: 30px;
+  background: #f0f0f0;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.distribution-bar {
+  height: 100%;
+  transition: width 0.5s ease;
+  border-radius: 15px;
+}
+
+.distribution-count {
+  position: absolute;
+  right: 10px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Journal Tabs */
+.journal-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #eee;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  color: #666;
+  transition: all 0.3s;
+}
+
+.tab-btn:hover {
+  color: #4CAF50;
+}
+
+.tab-btn.active {
+  color: #4CAF50;
+  border-bottom: 2px solid #4CAF50;
+  margin-bottom: -2px;
+}
+
+/* Save Button */
+.save-btn {
+  width: 100%;
+  padding: 12px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 15px;
+}
+
+.save-btn:hover {
+  background: #45a049;
+}
+
+/* Trend Insights */
+.trend-insights {
+  margin-top: 25px;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 10px;
+}
+
+.trend-insights h4 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.trend-insights ul {
+  list-style: none;
+  padding: 0;
+}
+
+.trend-insights li {
+  padding: 8px 0;
+  color: #666;
+  border-bottom: 1px solid #eee;
+}
+
+.trend-insights li:last-child {
+  border-bottom: none;
+}
+
+/* No Data State */
+.no-data {
+  text-align: center;
+  padding: 60px 20px;
+  color: #999;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .heatmap-day {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .heatmap-emoji {
+    font-size: 10px;
+  }
+  
+  .distribution-label {
+    width: 80px;
+    font-size: 11px;
+  }
+  
+  .stat-value {
+    font-size: 20px;
+  }
+  
+  .tab-btn {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}
+
+/* Mindfulness Tools Styles */
+.mindfulness-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.mindfulness-dashboard {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+}
+
+.dashboard-description {
+  text-align: center;
+  color: #666;
+  margin-bottom: 3rem;
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.tool-card {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.tool-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.tool-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.tool-card h3 {
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.tool-description {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0.5rem 0 1rem;
+}
+
+.tool-btn {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.tool-btn:hover {
+  background: #45a049;
+}
+
+/* Breathing Exercise */
+.breathing-circle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.breathing-circle {
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.breathing-instruction {
+  text-align: center;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.breathing-timer {
+  font-size: 2rem;
+  margin-top: 0.5rem;
+}
+
+.breathing-stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 1rem 0;
+}
+
+.breathing-stats .stat {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Meditation Timer */
+.meditation-setup {
+  text-align: center;
+}
+
+.duration-selector, .sound-selector {
+  margin: 1.5rem 0;
+}
+
+.duration-buttons {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.duration-btn {
+  padding: 0.5rem 1rem;
+  background: #f0f0f0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.duration-btn.active {
+  background: #4CAF50;
+  color: white;
+}
+
+.meditation-active {
+  text-align: center;
+}
+
+.meditation-timer {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.timer-circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.timer-text {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.timer-label {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.meditation-controls {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.meditation-guidance {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: #f9f9f9;
+  border-radius: 10px;
+}
+
+/* Grounding Technique */
+.grounding-progress {
+  margin: 2rem 0;
+}
+
+.progress-steps {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.progress-step {
+  text-align: center;
+  flex: 1;
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.5rem;
+  font-weight: bold;
+}
+
+.progress-step.active .step-number {
+  background: #4CAF50;
+  color: white;
+}
+
+.progress-step.completed .step-number {
+  background: #8BC34A;
+  color: white;
+}
+
+.grounding-step {
+  padding: 1rem;
+}
+
+.grounding-input {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.grounding-input input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.grounding-list {
+  margin: 1rem 0;
+}
+
+.grounding-item {
+  padding: 0.5rem;
+  margin: 0.25rem 0;
+  background: #f0f0f0;
+  border-radius: 8px;
+}
+
+.progress-bar {
+  height: 8px;
+  background: #f0f0f0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 1rem 0;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #4CAF50;
+  transition: width 0.3s;
+}
+
+/* PMR Exercise */
+.pmr-active {
+  text-align: center;
+}
+
+.pmr-phase {
+  padding: 2rem;
+  border-radius: 16px;
+  margin: 2rem 0;
+  transition: background-color 0.5s;
+}
+
+.phase-label {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+}
+
+.phase-timer {
+  font-size: 4rem;
+  margin-top: 1rem;
+}
+
+.timer-animation {
+  font-size: 4rem;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+.pmr-instruction {
+  margin: 2rem 0;
+}
+
+.pmr-guidance {
+  margin: 1rem 0;
+  font-size: 1.1rem;
+}
+
+/* Tips Section */
+.mindfulness-tips, .breathing-tips, .meditation-tips {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: #f9f9f9;
+  border-radius: 12px;
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.tip {
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.tip strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #4CAF50;
+}
+
+/* Back Button */
+.back-btn {
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  background: #666;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Mindfulness Buttons */
+.mindfulness-btn {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.mindfulness-btn:hover {
+  transform: scale(1.02);
+}
+
+.start-btn {
+  background: #4CAF50;
+  color: white;
+}
+
+.stop-btn {
+  background: #f44336;
+  color: white;
+}
+
+.pause-btn, .resume-btn {
+  background: #FFC107;
+  color: #333;
+}
+
+/* Complete State */
+.grounding-complete {
+  text-align: center;
+}
+
+.complete-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.grounding-summary {
+  text-align: left;
+  margin: 2rem 0;
+}
+
+.summary-grid {
+  display: grid;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.summary-item {
+  padding: 0.5rem;
+  background: #f9f9f9;
+  border-radius: 8px;
+}

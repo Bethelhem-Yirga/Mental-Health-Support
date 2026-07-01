@@ -57,6 +57,16 @@ export function SocketProvider({ children, userId }: { children: ReactNode; user
       setMessages((prev) => [...prev, msg])
     })
 
+    // Rate limit handlers
+    newSocket.on('rate_limit', (data) => {
+      console.log('⏱️ Rate limit:', data)
+      // You can emit this to components if needed
+    })
+
+    newSocket.on('error', (error) => {
+      console.error('Socket error:', error)
+    })
+
     setSocket(newSocket)
 
     // Cleanup on unmount

@@ -1,0 +1,31 @@
+🚀 I built a mental health platform that helps people anonymously.
+
+Here's why:
+
+3 months ago, I started building MindSpace - a full-stack mental health support platform. I wanted to create something that could actually help people.
+
+What I built:
+
+💬 Anonymous real-time chat support - Talk without revealing identity
+📔 Mood journal with analytics - Track patterns over time
+📋 PHQ-9 depression assessment - Clinically validated screening
+🧘 Mindfulness tools - Breathing exercises & meditation
+👨‍⚕️ Therapist directory - Find licensed professionals
+🆘 24/7 crisis resources - One-click emergency support
+
+Tech stack:
+• Next.js 14 + Tailwind CSS
+• Node.js + Express backend
+• MongoDB Atlas for data
+• Socket.io for real-time chat
+• Deployed on Vercel + Render
+
+The hardest part? WebSocket connection management across page navigation. Keeping the chat alive while users moved between pages was tricky, but I solved it with a global socket context.
+
+The most rewarding part? Seeing real users benefit from anonymous support.
+
+👇 Which feature would help you most?
+
+Check it out: (https://github.com/Bethelhem-Yirga/Mental-Health-Support.git)
+
+#MentalHealth #WebDevelopment #FullStack #NextJS #MongoDB #SocketIO #SaaS #BuiltInPublic #MERNStack #NodeJS #TechForGood

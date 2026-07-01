@@ -29,6 +29,16 @@
             "date": 1780986255543,
             "name": "/home/mercy/Desktop/mental/backend/logs/application-2026-06-09.log",
             "hash": "c5273370424f4112a552a6de4e1379f74f29dd768e057788deae7218f9639212"
+        },
+        {
+            "date": 1781088147883,
+            "name": "/home/mercy/Desktop/mental/backend/logs/application-2026-06-10.log",
+            "hash": "6b89c36a2b76a10ec2d40725bd1164dd7a755df898a62abc58add6188cf7b09d"
+        },
+        {
+            "date": 1781245113610,
+            "name": "/home/mercy/Desktop/mental/backend/logs/application-2026-06-12.log",
+            "hash": "8d59b48fe4ff21006601e7c60d6f589acf0271ce7c4079ea5ab5fc8b2ddd5bb8"
         }
     ],
     "hashType": "sha256"

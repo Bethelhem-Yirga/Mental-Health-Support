@@ -1,31 +1,57 @@
-const { calculatePHQ9Score } = require('../utils/constants');
+const Assessment = require('../models/Assessment');
+const User = require('../models/User');
 
-exports.submitAssessment = async (req, res, next) => {
+exports.submitAssessment = async (req, res) => {
   try {
-    const { answers, userId } = req.body;
+    const { userId, answers } = req.body;
     
-    if (!answers || !Array.isArray(answers) || answers.length !== 9) {
-      return res.status(400).json({ 
-        error: 'Invalid assessment data. Need 9 answers.' 
+    if (!userId) {
+      return res.status(400).json({
+        success: false,
+        error: 'User ID required'
       });
     }
     
-    // Validate each answer is between 0-3
-    for (let answer of answers) {
-      if (answer < 0 || answer > 3) {
-        return res.status(400).json({ 
-          error: 'Answers must be between 0 and 3' 
-        });
-      }
+    if (!answers || !Array.isArray(answers) || answers.length !== 9) {
+      return res.status(400).json({
+        success: false,
+        error: 'Invalid assessment data. Need 9 answers.'
+      });
     }
     
     const total = answers.reduce((sum, val) => sum + val, 0);
-    const { severity, recommendation } = calculatePHQ9Score(total);
+    let severity = "Minimal";
+    let recommendation = "Continue your wellness practices";
     
-    // Save to database if userId provided
-    if (userId) {
-      // Save assessment result to database
-      // await AssessmentResult.create({ userId, score: total, severity });
+    if (total >= 5 && total <= 9) {
+      severity = "Mild";
+      recommendation = "Consider self-help strategies and monitor symptoms";
+    } else if (total >= 10 && total <= 14) {
+      severity = "Moderate";
+      recommendation = "Consider speaking with a therapist";
+    } else if (total >= 15 && total <= 19) {
+      severity = "Moderately Severe";
+      recommendation = "Strongly recommend consulting a mental health professional";
+    } else if (total >= 20) {
+      severity = "Severe";
+      recommendation = "Please seek professional help immediately";
+    }
+    
+    const assessment = new Assessment({
+      userId,
+      answers,
+      score: total,
+      severity,
+      recommendation
+    });
+    
+    await assessment.save();
+    
+    // Update user stats
+    const user = await User.findById(userId);
+    if (user) {
+      user.stats.totalAssessments += 1;
+      await user.save();
     }
     
     res.json({
@@ -34,28 +60,28 @@ exports.submitAssessment = async (req, res, next) => {
         score: total,
         severity,
         recommendation,
-        maxScore: 27,
-        minScore: 0,
-        interpretation: {
-          '0-4': 'Minimal depression',
-          '5-9': 'Mild depression',
-          '10-14': 'Moderate depression',
-          '15-19': 'Moderately severe depression',
-          '20-27': 'Severe depression'
-        }
+        assessmentId: assessment._id
       }
     });
   } catch (error) {
-    next(error);
+    console.error('Assessment error:', error);
+    res.status(500).json({ error: error.message });
   }
 };
 
-exports.getAssessmentHistory = async (req, res, next) => {
+exports.getAssessmentHistory = async (req, res) => {
   try {
     const { userId } = req.params;
-    // Fetch from database
-    res.json({ success: true, data: [] });
+    
+    const assessments = await Assessment.find({ userId })
+      .sort({ takenAt: -1 });
+    
+    res.json({
+      success: true,
+      count: assessments.length,
+      data: assessments
+    });
   } catch (error) {
-    next(error);
+    res.status(500).json({ error: error.message });
   }
 };

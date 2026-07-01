@@ -1,36 +1,189 @@
-// Mock data - replace with database
-const therapists = [
-  { id: 1, name: "Dr. Sarah Chen", specialty: "Anxiety & Depression", rating: 4.9, available: true, experience: "12 years", location: "Online" },
-  { id: 2, name: "Michael Okonkwo", specialty: "Trauma & PTSD", rating: 4.8, available: false, experience: "8 years", location: "New York" },
-  { id: 3, name: "Dr. Emily Rodriguez", specialty: "Teen Counseling", rating: 4.9, available: true, experience: "10 years", location: "California" },
-  { id: 4, name: "Dr. James Wilson", specialty: "Addiction & Recovery", rating: 4.7, available: true, experience: "15 years", location: "Online" }
-];
+const Therapist = require('../models/Therapist');
 
-exports.getAllTherapists = (req, res, next) => {
+// Get all therapists with filters
+exports.getAllTherapists = async (req, res) => {
   try {
-    let result = [...therapists];
-    if (req.query.available === 'true') {
-      result = result.filter(t => t.available);
+    const { 
+      specialty, 
+      onlineOnly, 
+      minPrice, 
+      maxPrice, 
+      minRating,
+      search,
+      available,
+      limit = 20,
+      page = 1
+    } = req.query;
+
+    let query = { isActive: true };
+
+    // Filter by specialty
+    if (specialty && specialty !== 'All Specialties') {
+      query.specialty = specialty;
+    }
+
+    // Filter by online only
+    if (onlineOnly === 'true') {
+      query.onlineOnly = true;
+    }
+
+    // Filter by availability
+    if (available === 'true') {
+      query.available = true;
+    }
+
+    // Price range filter
+    if (minPrice || maxPrice) {
+      query.price = {};
+      if (minPrice) query.price.$gte = parseInt(minPrice);
+      if (maxPrice) query.price.$lte = parseInt(maxPrice);
+    }
+
+    // Rating filter
+    if (minRating) {
+      query.rating = { $gte: parseFloat(minRating) };
+    }
+
+    // Search by text
+    if (search) {
+      query.$text = { $search: search };
+    }
+
+    // Pagination
+    const skip = (parseInt(page) - 1) * parseInt(limit);
+    
+    const therapists = await Therapist.find(query)
+      .sort({ rating: -1, reviewCount: -1 })
+      .skip(skip)
+      .limit(parseInt(limit));
+
+    const total = await Therapist.countDocuments(query);
+
+    res.json({
+      success: true,
+      data: therapists,
+      pagination: {
+        total,
+        page: parseInt(page),
+        limit: parseInt(limit),
+        pages: Math.ceil(total / parseInt(limit))
+      }
+    });
+  } catch (error) {
+    console.error('Error fetching therapists:', error);
+    res.status(500).json({ 
+      success: false, 
+      error: error.message 
+    });
+  }
+};
+
+// Get single therapist by ID
+exports.getTherapistById = async (req, res) => {
+  try {
+    const therapist = await Therapist.findById(req.params.id);
+    
+    if (!therapist) {
+      return res.status(404).json({ 
+        success: false, 
+        error: 'Therapist not found' 
+      });
     }
     
     res.json({
       success: true,
-      count: result.length,
-      data: result
+      data: therapist
     });
   } catch (error) {
-    next(error);
+    res.status(500).json({ 
+      success: false, 
+      error: error.message 
+    });
   }
 };
 
-exports.getTherapistById = (req, res, next) => {
+// Create new therapist (admin only)
+exports.createTherapist = async (req, res) => {
   try {
-    const therapist = therapists.find(t => t.id === parseInt(req.params.id));
-    if (!therapist) {
-      return res.status(404).json({ error: 'Therapist not found' });
-    }
-    res.json({ success: true, data: therapist });
+    const therapist = new Therapist(req.body);
+    await therapist.save();
+    
+    res.status(201).json({
+      success: true,
+      data: therapist
+    });
   } catch (error) {
-    next(error);
+    res.status(500).json({ 
+      success: false, 
+      error: error.message 
+    });
+  }
+};
+
+// Update therapist (admin only)
+exports.updateTherapist = async (req, res) => {
+  try {
+    const therapist = await Therapist.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true, runValidators: true }
+    );
+    
+    if (!therapist) {
+      return res.status(404).json({ 
+        success: false, 
+        error: 'Therapist not found' 
+      });
+    }
+    
+    res.json({
+      success: true,
+      data: therapist
+    });
+  } catch (error) {
+    res.status(500).json({ 
+      success: false, 
+      error: error.message 
+    });
+  }
+};
+
+// Delete therapist (admin only)
+exports.deleteTherapist = async (req, res) => {
+  try {
+    const therapist = await Therapist.findByIdAndDelete(req.params.id);
+    
+    if (!therapist) {
+      return res.status(404).json({ 
+        success: false, 
+        error: 'Therapist not found' 
+      });
+    }
+    
+    res.json({
+      success: true,
+      message: 'Therapist deleted successfully'
+    });
+  } catch (error) {
+    res.status(500).json({ 
+      success: false, 
+      error: error.message 
+    });
+  }
+};
+
+// Get specialties list
+exports.getSpecialties = async (req, res) => {
+  try {
+    const specialties = await Therapist.distinct('specialty');
+    res.json({
+      success: true,
+      data: ['All Specialties', ...specialties]
+    });
+  } catch (error) {
+    res.status(500).json({ 
+      success: false, 
+      error: error.message 
+    });
   }
 };
